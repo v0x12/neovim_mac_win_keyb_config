@@ -1,4 +1,4 @@
-" curl -fLO $HOME/.config/nvim/autoload/plug.vim --create-dirs \
+":help key-notation curl -fLO $HOME/.config/nvim/autoload/plug.vim --create-dirs \
 " 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 set hlsearch
@@ -30,6 +30,13 @@ Plug 'jiangmiao/auto-pairs'
 " Multiple tab support
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+" Vim devicons
+Plug 'ryanoasis/vim-devicons'
+" Adding prettier support
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+" Adding nerdtree github highlight
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" TODO: Adding text search functionality
 call plug#end()
 
 colorscheme gruvbox
@@ -39,23 +46,14 @@ map <silent> <C-n> :NERDTreeFocus <CR>
 
 " Ctrl-p file filterings
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn|js))$'
-
-" Multiple tabs config
-nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
-nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
-nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
-nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
-nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
-nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
-nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
-nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
-nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
-nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
+" Prettier auto formatting enable
+let g:prettier#autoformat_require_pragma = 0
 
 " COC config
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
+let g:airline_powerline_fonts = 1
 
 " TextEdit might fail if hidden is not set.
 set hidden
